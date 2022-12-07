@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="shortcut icon" href="elementosGraficos/img/logo/favicon.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+
+
+  <title>Tikis Tienda </title>
+</head>
+
+<body>
+
+  <!--HEADER-->
+  <div class="container bg-tikis">
+    <header>
+      <!--NAV -->
+      <div class="container bg-tikis">
+        <nav class="navbar navbar-expand-lg">
+          <div class="d-flex flex-nowrap">
+            <div class="order-1">
+              <a class="navbar-brand">
+                <img class="d-none d-md-block d-lg-none img-fluid px-2" src="elementosgraficos/img/logo/dinosaurio.png"
+                  alt="Dinosaurio del Logo de Tikis Tienda">
+                <img class="d-none d-lg-block img-fluid px-2" src="elementosgraficos/img/logo/logohorizontal.png"
+                  alt="Logo Tikis Tienda Horizontal">
+                <h1 class="d-md-none px-3">Tikis Tienda</h1>
+              </a>
+            </div>
+
+            <div class="order-2 ps-2 pe-2">
+              <button type="button" class="btn bg-tikis fs-3" data-bs-toggle="modal" data-bs-target="#modalCarrito">
+                <a class="nav-link">
+                  <i class="bi bi-cart2"></i>
+                </a>
+              </button>
+            </div>
+          </div>
+
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#barraNavegacion"
+            aria-controls="barraNavegacion" aria-expanded="false" aria-label="Despligue menu navegacion">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="barraNavegacion">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="#historia">Historia</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#negocio">Nuestro Negocio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#productos">Productos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#informacionUtil">Información Útil</a>
+              </li>
+            </ul>
+          </div>
+
+        </nav>
+      </div>
+
+      <!--MODALS -->
+
+      <!-- Modal Carrito de Compra -->
+      <div class="modal fade" id="modalCarrito" tabindex="-1" aria-labelledby="modalCarrito" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-dialog">
+            <div class="modal-dialog modal-dialog-scrollable">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h2 class="modal-title fs-3 font-tikis" id="exampleModalLabel">Carrito de Compras</h2>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body d flex flex-column">
+                  <div id="productoEnCarrito">
+
+                    <!-- DATOS DINAMICOS -->
+
+                  </div>
+                  <div class="d flex flex-column">
+                    <div class="row rounded-3 mb-2">
+                      <h3 class="fs-3">Cantidad de Productos : <span id="cantidadProductos"> </span> </h3>
+                      <h3 class="fs-3">Precio Total: $<span id="total"> </span> </h3>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn bg-tikis font-tikis fs-4">Vaciar
+                    Carrito</button>
+                    <button type="button" class="btn bg-tikis font-tikis fs-4" data-bs-dismiss="modal">Continuar Comprando</button>
+                    <button type="button" class="btn bg-tikis font-tikis fs-4">Confirmar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Detalle -->
+
+      <div class="modal fade" id="modalDetalle" tabindex="-1" aria-labelledby="modalDetalle" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h2 class="modal-title fs-3 font-tikis" id="exampleModalLabel">Detalle de Producto</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <div class="modal-body d flex flex-column">
+                <div id="descripcionAmplia">
+
+                  <!-- DATOS DINAMICOS -->
+
+                </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn bg-tikis font-tikis fs-4" data-bs-dismiss="modal">Continuar Comprando</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Modal Confirmación -->
+      <div class="modal fade" id="modalAgregarCarrito" tabindex="-1" aria-labelledby="modalAgregarCarrito"
+        aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2 class="modal-title fs-3 font-tikis" id="exampleModalLabel">Operación confirmada</h2>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <h3>El Producto ha sido agregado al carrito de compras</h3>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn bg-tikis fs-4 font-tikis" data-bs-dismiss="modal">
+                  Continuar Comprando
+              </button>
+              <button type="button" class="btn bg-tikis fs-4 font-tikis" data-bs-toggle="modal" data-bs-target="#modalCarrito">
+                  Visitar Carrito
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- CARROUSEL -->
+
+      <div class="container bg-tikis">
+        <div id="carouselImagenes" class="carousel slide" data-bs-ride="false">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselImagenes" data-bs-slide-to="0" class="active"
+              aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselImagenes" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselImagenes" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="elementosgraficos/img/carrousel/primerbanner.jpeg" class="img-fuild rounded d-block w-100"
+                alt="Banner promocionando nuevos ingresos">
+              <div class="carousel-caption d-none d-md-block d-lg-none">
+                <h2> Descuentos Exclusivos </h2>
+              </div>
+              <div class="carousel-caption d-none d-lg-block">
+                <h2> Descuentos Exclusivos </h2>
+                <p class="fs-4 fw-bold">Visítanos en nuestro Playroom para conocer lo nuevo en indumentaria y aprovechar
+                  el descuento exclusivo </p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="elementosgraficos/img/carrousel/segundobanner.jpeg" class="img-fuild rounded d-block w-100"
+                alt="Banner informando la nueva temporada">
+              <div class="carousel-caption d-none d-md-block d-lg-none">
+                <h2> PRIMAVERA - VERANO </h2>
+              </div>
+              <div class="carousel-caption d-none d-lg-block">
+                <h2> PRIMAVERA - VERANO </h2>
+                <p class="fs-4 fw-bold">Conoce todo lo nuevo que tenemos de la temporada Primavera – Verano </p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="elementosgraficos/img/carrousel/tercerbanner.jpeg" class="img-fuild rounded d-block w-100"
+                alt="Banner promocionando conjunto Lupe ">
+              <div class="carousel-caption d-none d-md-block d-lg-none">
+                <h2> Nuevos Ingresos </h2>
+              </div>
+              <div class="carousel-caption d-none d-lg-block">
+                <h2> Nuevos Ingresos </h2>
+                <p class="fs-4 fw-bold">Visita nuestro catálogo para conocer los nuevos ingresos </p>
+              </div>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselImagenes" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselImagenes" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Posterior</span>
+          </button>
+        </div>
+      </div>
+
+    </header>
+    <!--MAIN-->
+
+    <main>
+
+      <!--HISTORIA -->
+
+      <section id="historia">
+        <div class="container-sm container-md bg-tikis">
+          <h2 class="p-3">Historia</h2>
+          <img class="d-none d-sm-block mx-auto d-lg-none img-fluid " src="elementosgraficos/img/logo/texto.png"
+            alt="Logo Texto Tikis Tienda">
+          <div class="row">
+            <div class="col-12 col-lg-6 p-3 d-flex justify-content-center align-items-center ">
+              <p> Fue fundado en el 2020 y comenzó como un emprendimiento familiar en la ciudad de Merlo, Buenos Aires.
+                En sus inicios comercializaron únicamente ropa para bebés. Hoy en día, luego de mucho esfuerzo,
+                ampliaron su cartera de productos a indumentaria, juegos y juguetes. No solo los venden, sino que
+                también son fabricantes.
+                Sus canales de ventas son a través de e-commerce y además poseen su propia tienda física en dicha
+                localidad.</p>
+            </div>
+            <div class="col-12 col-md-6 p-2 d-flex justify-content-center align-items-center ">
+              <img class="d-none d-lg-block img-fluid " src="elementosgraficos/img/logo/logo.png"
+                alt="Logo Tikis Tienda Completo">
+            </div>
+            <div class="col-12 p-2 ">
+              <h3 class="fs-4"> Propuesto de Valor </h3>
+              <p> La propuesta de valor por la cual “Tikis Tienda” busca diferenciarse de su competencia se basa en dos
+                premisas importantes:</p>
+              <p>
+                <span class="text-decoration-underline fw-bold"> Calidad:</span> Ofrecer productos que se distinguen por
+                su calidad, donde se tiene en cuenta cada materia prima que se utiliza y cada estampa que se escoge para
+                llevar a cabo la producción de todos sus artículos.
+              </p>
+              <p>
+                <span class="text-decoration-underline fw-bold">Amor:</span> Realizar todo con amor, es decir, desde la
+                materia prima que se utiliza para desarrollar sus productos y la confección de los mismos hasta la
+                manera de comercializarlos y el trato con sus compradores. Siempre buscan demostrar el amor y cariño que
+                posee cada producto que comercializa la marca.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--NUESTRO NEGOCIO -->
+
+      <section id="negocio">
+        <div class="container bg-tikis">
+          <h2>Nuestro Negocio</h2>
+          <div class="row">
+            <div class="col-12 col-md-6 p-2 d-flex justify-content-center align-items-center ">
+              <p> “Tikis Tienda” es un emprendimiento dedicado a la fabricación y comercialización de productos para
+                bebés. Entre los productos que se comercializan se pueden encontrar indumentaria para los mas chicos
+                entre 0 y 3 años. Todo tipo de accesorios desde baberos a toallitas y diferentes juegos didácticos que
+                sirven para estimular la motricidad. </p>
+            </div>
+            <div class="col-12 col-md-6 p-2 d-flex justify-content-center align-items-center ">
+              <img class="d-none d-md-block img-fluid " src="elementosgraficos/img/otros/negocio.png"
+                alt="Foto de negocio">
+
+            </div>
+
+          </div>
+        </div>
+
+      </section>
+
+      <!--PRODUCTOS -->
+      <div class="container bg-tikis">
+        <section id="productos">
+          
+            <h2>Productos</h2>
+            <div class="col-12">
+          <div class="col-12 my-3">
+            <label for="filtrarCategoría" class="fs-3">Filtrar por Categoría:</label>
+            <select name="categoría" id="filtrarCategoría">
+                <option value="">--Elija una Categoría--</option>
+                <option value="Accesorios">Accesorios</option>
+                <option value="Indumentaria">Indumentaria</option>
+                <option value="Juguetes">Juguetes</option>
+                <option value="Todas">Todas</option>
+            </select>
+          </div>  
+          
+
+
+ 
+          <div class="row mb-3 g-3" id="ventaProductos">
+
+          </div>
+        </div>
+        </section>
+
+        <!--INFORMACION UTIL -->
+        <div class="container bg-tikis">
+          <section class="row" id="informacionUtil">
+
+            <div class="col-12">
+              <h2>Información Útil</h2>
+            </div>
+
+
+
+            <div class="d-md-none col-12 p-3">
+              <div class="accordion" id="acordionInfo">
+                <div class="accordion-item">
+                  <h3 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#primerInfo">
+                      <span> Pedidos </span>
+                    </button>
+                  </h3>
+                  <div id="primerInfo" class="accordion-collapse collapse " data-bs-parent="#acordionInfo">
+                    <div class="accordion-body">
+                      <p>Para reservar prendas se toma el 50% del valor como seña, SIN EXCEPCIÓN
+                        Una vez hecho el pedido, tendrás 10 días para coordinar el retiro/entrega/envío. De los
+                        contrario, el producto volverá a nuestro stock.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h3 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#segundaInfo">
+                      <span>Envíos</span>
+                    </button>
+                  </h3>
+                  <div id="segundaInfo" class="accordion-collapse collapse" data-bs-parent="#acordionInfo">
+                    <div class="accordion-body">
+                      <p>
+                        Realizamos envíos a domicilio por moto mensajería tan sólo debes enviarnos tu dirección y zona
+                        para realizar una simulación del costo. Envíos a Capital Federal desde $500
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h3 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#tercerInfo">
+                      <span> Cambios </span>
+                    </button>
+                  </h3>
+                  <div id="tercerInfo" class="accordion-collapse collapse" data-bs-parent="#acordionInfo">
+                    <div class="accordion-body">
+                      <p>
+                        Todos los productos tienen 10 días de cambio, los mismos deben volver en las mismas condiciones
+                        en las que fueron entregados: en su bolsa y con su correspondiente etiqueta.
+                        Los cambios se realizan únicamente en nuestro showroom ubicado en Merlo.</p>
+                      <p class="fw-bold">NO SE REALIZAN REEMBOLSOS</p>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="d-none d-md-block d-flex justify-content-around">
+              <div class="row mb-3 g-3">
+                <div class="col-4">
+                  <div class="card rounded border border-5 border border-light">
+                    <img src="elementosgraficos/img/informacion/pedidos.png" class="d-none d-lg-block card-img-top"
+                      alt="Imagen de Pedidos de Tikis Tienda">
+                    <div class="card-body">
+                      <h3 class="card-title fs-4">Pedidos</h3>
+                      <p class="card-text">Para reservar prendas se toma el 50% del valor como seña, SIN EXCEPCIÓN
+                        Una vez hecho el pedido, tendrás 10 días para coordinar el retiro/entrega/envío. De los
+                        contrario, el producto volverá a nuestro stock. </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-4">
+                  <div class="card rounded border border-5 border border-light">
+                    <img src="elementosgraficos/img/informacion/envios.png"
+                      class="d-none d-lg-block card-img-top rounded" alt="Imagen de Envíos de Tikis Tienda">
+                    <div class="card-body">
+                      <h3 class="card-title fs-4"> Envíos </h3>
+                      <p class="card-text"> Realizamos envíos a domicilio por moto mensajería tan sólo debes enviarnos
+                        tu dirección y zona para realizar una simulación del costo. Envíos a Capital Federal desde $500
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-4">
+                  <div class="card rounded border border-5 border border-light">
+                    <img src="elementosgraficos/img/informacion/cambios.png" class="d-none d-lg-block card-img-top"
+                      alt="Imagen de cambios de Tikis Tienda">
+                    <div class="card-body">
+                      <h3 class="card-title fs-4">Cambios</h3>
+                      <p class="card-text">
+                        Todos los productos tienen 10 días de cambio, los mismos deben volver en las mismas condiciones
+                        en las que fueron entregados: en su bolsa y con su correspondiente etiqueta.
+                        Los cambios se realizan únicamente en nuestro showroom ubicado en Merlo.
+                        NO SE REALIZAN REEMBOLSOS</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </section>
+        </div>
+
+
+        <!--FOOTER-->
+        <div class="container bg-footer">
+
+          <footer class="row">
+
+
+            <div class="col-12">
+              <div class="m-4">
+                <p class="fw-bold">Parcial II</p>
+                <p> <span class="subrayado">Materia:</span> Programación I</p>
+                <p><span class="subrayado">Profesor:</span> Carlassara Fabrizio</p>
+                <p><span class="subrayado">Alumnos:</span> Bocutti, Santiago Leconte, Camila</p>
+              </div>
+            </div>
+
+
+          </footer>
+        </div>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+          crossorigin="anonymous"></script>
+
+
+
+        <script src="javascript/productos.js"></script>
+
+        <script src="javascript/carrito.js"></script>
+
+        <script src="javascript/index.js"></script>
+</body>
+
+</html>

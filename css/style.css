@@ -1,0 +1,100 @@
+body{
+    background-color: rgb(249, 181, 79);
+    text-shadow: black;
+}
+
+header, nav, main, footer {
+    max-width: 1296px;
+    margin: auto;
+}
+
+
+@font-face {
+    font-family: Fuente1;
+    src: url(../elementosgraficos/fuente/Montserrat.ttf);
+}
+
+@font-face {
+    font-family: Fuente2;
+    src: url(../elementosgraficos/fuente/Chewy-Regular.ttf);
+}
+
+@font-face {
+    font-family: Fuente3;
+    src: url(../elementosgraficos/fuente/Satisfy-Regular.ttf);
+}
+
+.bg-tikis {
+    background-color:#fff3c4;
+ }
+
+.font-tikis{
+    font-family: Fuente2;
+    color: #31b8c5; 
+}
+
+ .bg-footer {
+    background-color: #f8de77;;
+ }
+
+h1{
+    font-family: Fuente2;
+    color: #31b8c5;  
+}
+
+h2, h3{
+    font-family: Fuente3;
+    color: black;  
+}
+
+p{
+    font-family: Fuente1;
+    color: black;   
+}
+
+/* NAV */
+
+.nav-link {
+    font-family: Fuente2;
+    color: #31b8c5;
+}
+
+/* CAROUSEL */
+
+.carousel-caption{
+    background-color: rgba(47, 207, 162, 0.341);
+    color: black;
+    font-family: Fuente2;
+}
+
+.carousel-caption h2{
+    font-family: Fuente2;
+    color: whitesmoke;
+    text-shadow: black;
+}
+
+.carousel-caption p{
+    font-family: Fuente1;
+    color: black;
+    text-shadow: black;
+}
+
+/* INFORMACIÓN */
+
+button span{
+    font-family: Fuente1;
+}
+
+/*FOOTER*/
+
+
+.subrayado{
+    text-decoration: underline;
+}
+
+/*CONFIRMACIÓN DE PAGO*/
+
+form h2{
+    font-family: Fuente1;
+}
+
